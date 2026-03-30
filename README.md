@@ -15,7 +15,7 @@ DbMol  Mysql Database Connect and CURD
  );
 </pre>
 
-<h2>if you add any new colum, it modufies or alter the table automatically </h2>
+<h2>if you add any new colum, it modifies or alter the table automatically </h2>
 <pre>
  $membersdb=array(
   "table"=>"membersdb",
