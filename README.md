@@ -16,7 +16,7 @@ Mysql Database Connect and manage data
    )
   );
   $members = $dbmol->table_module($membersdb);
-
+  
   //CHECK AND INSERT DATA
   echo $members->checkAndInsert(
    array(
@@ -41,4 +41,37 @@ Mysql Database Connect and manage data
     ["Manjunath","12345"], 
     ["Another Name","45785"]
   ]);  
+
+  //Delete Data
+  echo $members->deleteData(
+   "Error",
+   "Deleted",
+   array(
+    "mobile"=>"'45785'"
+   )
+  );
+
+  //Update Data
+  echo $members->updateData(
+   "email,name",
+   "'manjjk@gmail.com','Manjunath Nath K'",
+   "Error",
+   "Updated",
+   array(
+    "mobile"=>"'1524'"
+   )
+  );
+  
+  //Get All Data
+  echo $members->getAllData(
+   array(
+    "fields"=>"name,mobile,email",
+    "name"=>" like '%%'"
+   ),
+   "json",
+   "error_theme.html",
+   "success_theme.html",
+   "name,mobile,email",
+   "Xname,Xmobile,Xemail"
+  );
   
