@@ -5,7 +5,8 @@ Mysql Database Connect and manage data
 <pre>
   require_once "dbmodule.php";
   $dbmol=new DbMol("","dbcon.json","newdb");
-  
+
+  //CONFIGURE TABLE
   $membersdb=array(
    "table"=>"members",
    "coloums"=>array(
@@ -15,6 +16,8 @@ Mysql Database Connect and manage data
     "address"=>"text Null",
    )
   );
+
+  //CALL THE TABLE - CREATES TABLE AUTOMATICALLY (if you add new colum, it alter the table by itself)
   $members = $dbmol->table_module($membersdb);
   
   //CHECK AND INSERT DATA
@@ -68,7 +71,20 @@ Mysql Database Connect and manage data
     "fields"=>"name,mobile,email",
     "name"=>" like '%%'"
    ),
-   "json",
+   "json", //it prints the json
+   "error_theme.html",
+   "success_theme.html",
+   "name,mobile,email",
+   "Xname,Xmobile,Xemail"
+  );
+
+  // FOR IN HTML FORMAT USE BELOWs
+  echo $members->getAllData(
+   array(
+    "fields"=>"name,mobile,email",
+    "name"=>" like '%%'"
+   ),
+   "html", //it prints the html format by calling the html theme
    "error_theme.html",
    "success_theme.html",
    "name,mobile,email",
