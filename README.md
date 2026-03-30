@@ -34,10 +34,6 @@ DbMol  Mysql Database Connect and CURD
  $members = $dbmol->table_module($membersdb);
 </pre>
 
-<h2>By Creating this object Table Creates automatically</h2>
-<pre>
- $members = $dbmol->table_module($membersdb);
-</pre>
 
 <h2>Insert multi data or single data by checking the record </h2>
 <pre>
