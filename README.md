@@ -2,12 +2,11 @@
 Mysql Database Connect and manage data 
 
 # usage
-Call module in index.php
-<pre>
-require_once "dbmodule.php";
-</pre>
 # create a table and manage
 <pre>
+  require_once "dbmodule.php";
+  $dbmol=new DbMol("","dbcon.json","newdb");
+  
   $membersdb=array(
    "table"=>"members",
    "coloums"=>array(
