@@ -38,6 +38,14 @@ require_once "dbmodule.php";
   //Insert Method Two by Data Array
   echo $members->insertData("name,mobile",["Manjunath","12345"]);
 
-  //Insert Multi Data 
-  echo $members->insertData("name,mobile",[ ["Manjunath","12345"], ["Omprakash","45785"]]);
-</pre>
+  //Insert Multi Data
+  echo $members->insertData("name,mobile",[ 
+    ["Manjunath","12345"], 
+    ["Another Name","45785"]
+  ]);
+
+
+
+
+
+
