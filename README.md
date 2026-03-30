@@ -1,93 +1,110 @@
-# dbmodule
-Mysql Database Connect and manage data 
+<h1>
+DbMol  Mysql Database Connect and CURD
+</h1>
 
-# create a table and manage
+<h2>Create new Table and Manage </h2>
 <pre>
-  require_once "dbmodule.php";
-  $dbmol=new DbMol("","dbcon.json","newdb");
+ $membersdb=array(
+  "table"=>"membersdb",
+  "coloums"=>array(
+   "name"=>"varchar(100) Null",
+   "mobile"=>"varchar(100) Null",
+   "email"=>"varchar(100) Null",
+   "address"=>"text Null",
+  )
+ );
+</pre>
 
-  //CONFIGURE TABLE
-  $membersdb=array(
-   "table"=>"members",
-   "coloums"=>array(
-    "name"=>"varchar(100) Null",
-    "mobile"=>"varchar(100) Null",
-    "email"=>"varchar(100) Null",
-    "address"=>"text Null",
-   )
-  );
+<h2>if you add any new colum, it modufies or alter the table automatically </h2>
+<pre>
+ $membersdb=array(
+  "table"=>"membersdb",
+  "coloums"=>array(
+   "name"=>"varchar(100) Null",
+   "mobile"=>"varchar(100) Null",
+   "email"=>"varchar(100) Null",
+   "address"=>"text Null",
+   "createdat"=>"varchar(50) null"
+  )
+ );
+</pre>
 
-  //CALL THE TABLE - CREATES TABLE AUTOMATICALLY (if you add new colum, it alter the table by itself)
-  $members = $dbmol->table_module($membersdb);
-  
-  //CHECK AND INSERT DATA
-  echo $members->checkAndInsert(
-   array(
-    "fields"=>"name,email",
-    "name"=>"'User' and ",
-    "mobile"=>"00000"
-   ),
-   "data exists",
-   "Inserted",
-   "name,email,mobile",[
-   ["Manjunath","email@web.com","00000"]
-  ]);
+<h2>By Creating this object Table Creates automatically</h2>
+<pre>
+ $members = $dbmol->table_module($membersdb);
+</pre>
 
-  //Insert Method One
-  echo $members->insertData("name,mobile","'Manjunath','12345'");
+<h2>By Creating this object Table Creates automatically</h2>
+<pre>
+ $members = $dbmol->table_module($membersdb);
+</pre>
 
-  //Insert Method Two by Data Array
-  echo $members->insertData("name,mobile",["Manjunath","12345"]);
+<h2>Insert multi data or single data by checking the record </h2>
+<pre>
+echo $members->checkAndInsert(
+ array(
+   "fields"=>"name,email",
+   "name"=>"'Manju' and ",
+   "mobile"=>"1524"
+  ),
+  "data exists",
+  "Inserted",
+  "name,email,mobile",[
+  ["Manjunath","email","1524"]
+ ]);
+</pre>
 
-  //Insert Multi Data
-  echo $members->insertData("name,mobile",[ 
-    ["Manjunath","12345"], 
-    ["Another Name","45785"]
-  ]);  
+<h2>To Update Data</h2>
+<pre>
+echo $members->updateData(
+ "email,name",
+ "'manjjk@gmail.com','Manjunath'",
+ "Error",
+ "Updated",
+ array(
+  "mobile"=>"'1524'"
+ )
+);
+</pre>
 
-  //Delete Data
-  echo $members->deleteData(
-   "Error",
-   "Deleted",
-   array(
-    "mobile"=>"'45785'"
-   )
-  );
+<h2>To Delete Data</h2>
+<pre>
+echo $members->deleteData(
+ "Error",
+ "Deleted",
+ array(
+  "mobile"=>"'1524'"
+ )
+);
+</pre>
 
-  //Update Data
-  echo $members->updateData(
-   "email,name",
-   "'manjjk@gmail.com','Manjunath Nath K'",
-   "Error",
-   "Updated",
-   array(
-    "mobile"=>"'1524'"
-   )
-  );
-  
-  //Get All Data
-  echo $members->getAllData(
-   array(
-    "fields"=>"name,mobile,email",
-    "name"=>" like '%%'"
-   ),
-   "json", //it prints the json
-   "error_theme.html",
-   "success_theme.html",
-   "name,mobile,email",
-   "Xname,Xmobile,Xemail"
-  );
 
-  // FOR IN HTML FORMAT USE BELOWs
-  echo $members->getAllData(
-   array(
-    "fields"=>"name,mobile,email",
-    "name"=>" like '%%'"
-   ),
-   "html", //it prints the html format by calling the html theme
-   "error_theme.html",
-   "success_theme.html",
-   "name,mobile,email",
-   "Xname,Xmobile,Xemail"
-  );
-  
+<h2>View Data in JSON</h2>
+<pre>
+echo $members->getAllData(
+  array(
+   "fields"=>"name,mobile,email",
+   "name"=>" like '%%'"
+  ),
+  "json",
+  "error_theme.html",
+  "success_theme.html",
+  "name,mobile,email",
+  "Xname,Xmobile,Xemail"
+ );
+</pre>
+
+<h2>View Data in HTML Format</h2>
+<pre>
+echo $members->getAllData(
+  array(
+   "fields"=>"name,mobile,email",
+   "name"=>" like '%%'"
+  ),
+  "html",
+  "error_theme.html",
+  "success_theme.html",
+  "name,mobile,email",
+  "Xname,Xmobile,Xemail"
+ );
+</pre>
