@@ -1,7 +1,6 @@
 # dbmodule
 Mysql Database Connect and manage data 
 
-# usage
 # create a table and manage
 <pre>
   require_once "dbmodule.php";
@@ -41,10 +40,5 @@ Mysql Database Connect and manage data
   echo $members->insertData("name,mobile",[ 
     ["Manjunath","12345"], 
     ["Another Name","45785"]
-  ]);
-
-
-
-
-
-
+  ]);  
+  
