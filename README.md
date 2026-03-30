@@ -34,11 +34,9 @@ require_once "dbmodule.php";
 
   //Insert Method One
   echo $members->insertData("name,mobile","'Manjunath','12345'");
-  echo "<hr/>";
 
   //Insert Method Two by Data Array
   echo $members->insertData("name,mobile",["Manjunath","12345"]);
-  echo "<hr/>";
 
   //Insert Multi Data 
   echo $members->insertData("name,mobile",[ ["Manjunath","12345"], ["Omprakash","45785"]]);
