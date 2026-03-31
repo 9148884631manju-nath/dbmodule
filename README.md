@@ -50,6 +50,16 @@ echo $members->checkAndInsert(
  ]);
 </pre>
 
+<h2>For Bulk Insert Data</h2>
+<pre>
+ echo $members->insertData("name,mobile",
+  [ 
+   ["Manjunath","12345"], 
+   ["New Member","45785"]
+  ]
+ );
+</pre>
+
 <h2>To Update Data</h2>
 <pre>
 echo $members->updateData(
